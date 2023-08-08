@@ -1,2 +1,2 @@
 # calculator-project
-I creating a calculator with html, css and javaScript.
+I am creating a calculator with html, css and javaScript.
