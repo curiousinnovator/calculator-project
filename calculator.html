@@ -3,42 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="calculator.css">
 </head>
 <body>
-  <p></p>
+  <p class="js-calculation  display-text"> </p>
   <p>
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>+</button>  
+    <button class="black-button text " onclick="updateCalculation('1');">1</button>
+    <button class="black-button text" onclick="updateCalculation('2')">2</button>
+    <button class="black-button text" onclick="updateCalculation('3')">3</button>
+    <button class="black-button text orange-button" onclick="updateCalculation('+')">+</button>  
 </p>
 <p>
-  <button>4</button>
-  <button>5</button>
-  <button>6</button>
-  <button>-</button>
-
-</p>
-
-<p>
-  <button>7</button>
-  <button>8</button>
-  <button>9</button>
-  <button>*</button>
+  <button class="black-button text" onclick="updateCalculation('4')">4</button>
+  <button class="black-button text" onclick="updateCalculation('5')">5</button>
+  <button class="black-button text" onclick="updateCalculation('6')">6</button>
+  <button class="black-button text orange-button" onclick="updateCalculation('-')">-</button>
 
 </p>
 
 <p>
-  <button>0</button>
-  <button>.</button>
-  <button>=</button>
-  <button>/</button>
+  <button class="black-button text" onclick="updateCalculation('7')">7</button>
+  <button class="black-button text" onclick="updateCalculation('8')">8</button>
+  <button class="black-button text" onclick="updateCalculation('9')">9</button>
+  <button class="black-button text orange-button" onclick="updateCalculation('*')">*</button> 
+
+</p>
+
+<p>
+  <button class="black-button text " onclick="updateCalculation('0')">0</button>
+  <button class="black-button text" onclick="updateCalculation('.')">.</button>
+  <button class="black-button text" onclick="
+  calculation = eval(calculation);
+  displayCalculation();
+
+  localStorage.setItem('calculation', calculation);
+  ">=</button>
+  <button class="black-button text orange-button
+  " onclick="updateCalculation('/')">/</button>
 
 </p>
 <p>
-  <button>clear</button>
+  <button class="black-button text clear" onclick="
+    calculation= '';
+    displayCalculation();
+
+    localStorage.setItem('calculation', calculation);
+    ">clear</button>
 </p>
-  <script></script>
+  <script>
+    let calculation = localStorage.getItem('calculation') || ''; 
+
+    displayCalculation();
+
+    function updateCalculation(value){
+      calculation += value;
+
+      displayCalculation();
+
+      localStorage.setItem('calculation', calculation);
+
+    }
+
+    function displayCalculation(){
+      document.querySelector('.js-calculation').innerHTML = calculation;
+    }
+  </script>
 </body>
 </html>
