@@ -7,13 +7,14 @@
 </head>
 <body>
       <script>
+        /* The program ask users to answer questions and if they get right .It print their score at the end of the quiz */
         const questions = [
           {'question' : 'who is nigeria president' , 'answer': 'Tinubu Bola', },
           { 'question': 'who is the VC of unilag' , 'answer': 'prof folashade' ,},
-          { 'question' : 'what is 1000 + 2000 ?' ,  'answer': '3000'} ]
-        let correct_answer = 0;
+          { 'question' : 'what is 1000 + 2000 ?' ,  'answer': '3000'} ] // so I declare array of objects.
+        let correct_answer = 0;  // Declare a variable that will count the number of correct scores the quiz taker gets.
 
-        for (const question of questions){
+        for (const question of questions){      // then use a for loop to loop through the array.
           let userInput = prompt(question.question)
           if (userInput == question.answer){
             console.log('correct!, you win!')
@@ -21,7 +22,7 @@
           } else{
             console.log(`Wrong!, the answer is ${question.answer}`);
           }
-           console.log(` You answered ${correct_answer} out of ${questions.length}`);
+           console.log(` You answered ${correct_answer} out of ${questions.length}. weldone, keep the energy up.`);
         }
       </script>
 </body>
